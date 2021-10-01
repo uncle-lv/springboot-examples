@@ -1,4 +1,4 @@
-package org.example.security.controller;
+package org.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package org.example.security.controller;
+package org.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.security.Principal;
 
 @Controller
-public class AdminController {
+public class UserController {
 
-    @GetMapping("/admin")
-    public String admin(Principal principal, Model model) {
+    @GetMapping("/user")
+    public String user(Principal principal, Model model) {
         model.addAttribute("user", principal);
-        return "admin/admin";
+        return "user/user";
     }
 }
