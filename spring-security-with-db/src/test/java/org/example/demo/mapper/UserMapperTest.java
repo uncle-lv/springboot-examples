@@ -1,5 +1,6 @@
 package org.example.demo.mapper;
 
+import org.example.demo.entity.Role;
 import org.example.demo.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,11 +18,11 @@ public class UserMapperTest {
         User user = userMapper.selectByUsername("user");
         Assertions.assertEquals("user", user.getUsername());
         Assertions.assertEquals("user@outlook.com", user.getEmail());
-        Assertions.assertEquals("USER", user.getRoles());
+        Assertions.assertEquals(1, user.getRoles().size());
 
         user = userMapper.selectByUsername("admin");
         Assertions.assertEquals("admin", user.getUsername());
         Assertions.assertEquals("admin@outlook.com", user.getEmail());
-        Assertions.assertEquals("USER,ADMIN", user.getRoles());
+        Assertions.assertEquals(2, user.getRoles().size());
     }
 }

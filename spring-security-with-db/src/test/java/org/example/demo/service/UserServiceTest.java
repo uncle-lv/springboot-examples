@@ -19,7 +19,7 @@ public class UserServiceTest {
         User user = (User) userService.loadUserByUsername("user");
         Assertions.assertEquals("user", user.getUsername());
         Assertions.assertEquals("user@outlook.com", user.getEmail());
-        Assertions.assertEquals("USER", user.getRoles());
+        Assertions.assertEquals(1, user.getRoles().size());
 
         Assertions.assertThrows(UsernameNotFoundException.class, new Executable() {
             @Override

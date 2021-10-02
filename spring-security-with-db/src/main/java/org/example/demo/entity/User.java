@@ -17,16 +17,16 @@ public class User implements UserDetails {
     private String username;
     private String email;
     private String password;
-    private String roles;
+    private List<Role> roles;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        String[] authorities = roles.split(",");
-        List<SimpleGrantedAuthority> grantedAuthorities = new ArrayList<>();
-        for (String role: authorities) {
-            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + role));
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        List<Role> roles = this.roles;
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getName()));
         }
-        return grantedAuthorities;
+        return authorities;
     }
 
     @Override
